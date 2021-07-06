@@ -1,9 +1,13 @@
 import React from 'react'
-import 'styles/index.less'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Routes from './routes/index'
+import './styles/index.less'
 
 function App() {
   return (
-    <h1>Hello TCC!!</h1>
+    <Router>
+      <Routes/>
+    </Router>
   )
 }
 
