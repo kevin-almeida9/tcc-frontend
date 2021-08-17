@@ -12,9 +12,8 @@ function Auth({children}:IAuthProps) {
         <Sidebar/>
         <Layout>
           <Header>
-            <h1>Layout</h1>
           </Header>
-          <Content>
+          <Content className="content-layput">
             {children}
           </Content>
       </Layout>

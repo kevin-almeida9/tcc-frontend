@@ -1,15 +1,29 @@
-.action-menu{
+.action-menu {
   display: flex;
   justify-content: center;
   align-items: center;
 
+  @layout-body-background: #E9F1FF;
+  @layout-header-background: #fff;
+  @layout-sider-background: @primary-color;
+  @layout-trigger-background: @primary-color;
+  @layout-sider-background-light: @primary-color;
+  @layout-trigger-background-light: @primary-color;
+
+  @layout-trigger-color: #fff;
+
+  @layout-trigger-color-light: white;
   height: @layout-header-height;
   font-size: 1.5rem;
   color: white;
 
   padding: 0 1rem;
 
-  &__open{
+ 
+
+  &__open {
     justify-content: flex-end;
   }
 }
+
+@layout-header-height: 50px;

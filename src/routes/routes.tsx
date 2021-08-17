@@ -1,4 +1,4 @@
-import  { Home, About } from 'views'
+import  { Home, Protocols } from 'views'
 
 const home = {
   path: '/',
@@ -6,11 +6,11 @@ const home = {
   exact:true
 }
 
-const about = {
+const protocols = {
   path: '/about',
-  component: About
+  component: Protocols
 }
 
-const routes =  [ home, about]
+const routes =  [ home, protocols]
 
 export default routes

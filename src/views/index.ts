@@ -1,7 +1,7 @@
 import Home from './Home/Home'
-import About from  './About/About'
+import Protocols from  './Protocols/Protocols'
 
 export {
   Home,
-  About
+  Protocols
 }
