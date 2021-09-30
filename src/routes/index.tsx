@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { IRoute } from 'types'
 import routes from './routes'
 import Auth from 'layouts/Auth'
 
@@ -9,9 +8,10 @@ function Routes() {
     <Switch>
       <Auth>
         {
-          routes.map((route:IRoute) => (
+          routes.map((route) => (
             <Route 
               {...route}
+              exact={true}
             />
           ))
         }

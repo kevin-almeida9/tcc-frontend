@@ -2,12 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 import Sider from 'antd/lib/layout/Sider'
 import { Menu } from 'antd'
-import {
-  MenuOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons';
-import { useHistory } from 'react-router-dom';
+import { MenuOutlined } from '@ant-design/icons'
+import { useHistory } from 'react-router-dom'
+import routes from 'routes/routes'
 
 function Sidebar() {
   const history = useHistory()
@@ -23,20 +20,13 @@ function Sidebar() {
         />
       </div> 
       <Menu theme="dark" mode="inline"  inlineCollapsed={collapsed} defaultSelectedKeys={['1']}>
-        <Menu.Item 
-          key="1" 
-          onClick={()=>{history.push('/')}} 
-          icon={<UserOutlined />}
-        >
-          Home
-        </Menu.Item>
-        <Menu.Item 
-          key="2" 
-          onClick={()=>{history.push('/about')}}
-          icon={<VideoCameraOutlined />}
-        >
-          About
-        </Menu.Item>
+        {routes.map(route => (
+          !route.hidden && <Menu.Item 
+            key={route.path}
+            onClick={()=>{history.push(route.path)}} 
+            icon={<route.icon/>}
+          >{route.name}</Menu.Item>
+        ))}
       </Menu>
     </Sider>
   )

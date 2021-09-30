@@ -1,10 +1,13 @@
 import React from 'react'
-import { Row, Input, Col, Card } from 'antd'
+import { Row, Input, Col, Card,Button } from 'antd'
 import { protocolsList } from './mocks'
 import { Meta } from 'antd/lib/list/Item'
 import Title from 'antd/lib/typography/Title'
+import { PlusCircleOutlined  } from '@ant-design/icons'
+import { useHistory } from 'react-router'
 
-function Protocols () {
+function ProtocolsList () {
+  const history = useHistory()
   return (
     <section>
       <Title>Protocolos</Title>
@@ -13,6 +16,17 @@ function Protocols () {
            <Input.Search
             placeholder="Pesquisar"
            />
+        </Col>
+        <Col span={4}  style={{marginLeft:'auto'}}>
+          <Button
+            style={{width:'100%'}}
+            type="primary"
+            shape="round"
+            icon={<PlusCircleOutlined />}
+            onClick={() => {
+              history.push('/protocols/form')
+            }}
+          >Adicionar Protocolo</Button>
         </Col>
       </Row>
       <Row gutter={[16,20]}>
@@ -38,4 +52,4 @@ function Protocols () {
   )
 }
 
-export default Protocols
+export default ProtocolsList
