@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { ReactNode, useRef, useState } from 'react'
 import { Row, Typography, Form, FormInstance, Input, Col } from 'antd'
 import { useHistory, useParams } from 'react-router'
 import {ArrowLeftOutlined} from '@ant-design/icons'
 
-function ProtocolForm() {
+function ProtocolForm(): ReactNode {
   const history = useHistory()
   const formRef = useRef<FormInstance<any>>(null)
   const { id } : { id: string } = useParams()

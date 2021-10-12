@@ -10,6 +10,7 @@ function Routes() {
         {
           routes.map((route) => (
             <Route 
+              key={route.path}
               {...route}
               exact={true}
             />

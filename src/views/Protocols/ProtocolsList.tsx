@@ -1,8 +1,7 @@
 import React from 'react'
-import { Row, Input, Col, Card,Button } from 'antd'
+import { Row, Input, Col, Card,Button, Typography } from 'antd'
 import { protocolsList } from './mocks'
 import { Meta } from 'antd/lib/list/Item'
-import Title from 'antd/lib/typography/Title'
 import { PlusCircleOutlined  } from '@ant-design/icons'
 import { useHistory } from 'react-router'
 
@@ -10,7 +9,7 @@ function ProtocolsList () {
   const history = useHistory()
   return (
     <section>
-      <Title>Protocolos</Title>
+      <Typography.Title>Protocolos</Typography.Title>
       <Row style={{marginBottom:'1.5rem'}}>
         <Col span={12}>
            <Input.Search

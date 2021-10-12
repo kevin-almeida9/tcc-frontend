@@ -1,5 +1,8 @@
 import { UserOutlined, FileProtectOutlined } from '@ant-design/icons'
+import { BedIcon } from 'assets/Icons'
+import { ReactNode } from 'react'
 import { RouteComponentProps } from 'react-router'
+import BedsList from 'views/Beds/BedsList'
 
 import Home from 'views/Home/Home'
 import ProtocolForm from 'views/Protocols/ProtocolForm'
@@ -7,10 +10,10 @@ import ProtocolsList from 'views/Protocols/ProtocolsList'
 
 export interface IRoute {
   path: string
-  component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
+  component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any> | any
   name: string
   exact?: boolean
-  icon: any
+  icon: ReactNode | any
   hidden?: boolean
 }
 
@@ -36,10 +39,18 @@ const protocolForm = {
   hidden: true
 }
 
+const Beds = {
+  path: '/beds',
+  name: 'Leitos',
+  component: BedsList,
+  icon: BedIcon
+}
+
 const routes:IRoute[] =  [ 
   home,
   protocols,
   protocolForm,
+  Beds
 ]
 
 export default routes
