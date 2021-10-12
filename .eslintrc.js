@@ -21,6 +21,6 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
-        "no-explicit-any":"none"
+        "no-explicit-any":0
     }
 };
