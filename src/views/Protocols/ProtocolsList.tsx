@@ -9,7 +9,7 @@ function ProtocolsList () {
   const history = useHistory()
   return (
     <section>
-      <Typography.Title>Protocolos</Typography.Title>
+      <Typography.Title  level={2}>Protocolos</Typography.Title>
       <Row style={{marginBottom:'1.5rem'}}>
         <Col span={12}>
            <Input.Search

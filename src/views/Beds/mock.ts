@@ -16,7 +16,7 @@ interface IBed {
   classification: _classificationUTI
   specialty?: string
   patient?: IPatient
-  warnins?: string[]
+  warnings?: string[]
   failures?: string[]
 
 }
@@ -34,23 +34,32 @@ const bedsMock: IBed[] = [
     id: 2,
     name: 'Leito 2',
     level: 'II',
-    status: 'empty',
+    status: 'warning',
     ambient: 'Quarto',
-    classification: 'Neonatal'
+    classification: 'Neonatal',
+    warnings:[
+      'Aguardando limpeza.',
+      'Aguardando reposição de materiais.'
+    ]
   },
   {
     id: 3,
     name: 'Leito 3',
     level: 'II',
-    status: 'empty',
+    status: 'danger',
     ambient: 'Quarto',
-    classification: 'Neonatal'
+    classification: 'Neonatal',
+    failures:[
+      'Falta de oxigênio.',
+      'Falta de cânula de intubação.',
+      'Falta de laringoscópio .'
+    ]
   },
   {
     id: 4,
     name: 'Leito 4',
     level: 'II',
-    status: 'empty',
+    status: 'disbled',
     ambient: 'Quarto',
     classification: 'Neonatal'
   },
@@ -58,7 +67,7 @@ const bedsMock: IBed[] = [
     id: 5,
     name: 'Leito 5',
     level: 'II',
-    status: 'empty',
+    status: 'using',
     ambient: 'Quarto',
     classification: 'Neonatal'
   },

@@ -1,0 +1,75 @@
+.CardBed {
+  min-height: 150px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+
+    div {
+      height: 1rem;
+      width: 1rem;
+      border-radius: 15px;
+      margin-right: 1rem;
+    }
+
+    h5 {
+      padding: 0;
+      margin: 0;
+      line-height: normal;
+
+    }
+  }
+
+  &__props {
+    p {
+      margin-bottom: .25rem;
+      color: @text-color;
+    }
+
+    strong {
+      margin-right: .75rem;
+      color: @primary-color;
+    }
+  }
+
+  &__List {
+    display: flex;
+    align-items: center;
+    margin-bottom: .25rem;
+    
+    p{
+      margin-bottom: 0 ;
+      line-height: normal;
+    }
+
+    .anticon{
+      font-size: 1.25rem;
+      margin-right: .75rem;
+    }
+
+    &--warning{
+      .anticon{
+        color: #ECF100;
+      }
+    }
+
+    &--danger{
+      .anticon{
+        color: #FF1A27;
+      }
+    }
+  }
+
+  &__disbled{
+    filter: contrast(0.5);
+  }
+
+  .ant-card-body {
+    padding: .5rem 1.5rem;
+  }
+
+  .ant-card-head-title {
+    padding: .5rem 0;
+  } 
+
+}
