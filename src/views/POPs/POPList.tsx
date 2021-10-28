@@ -1,15 +1,15 @@
 import React from 'react'
 import { Row, Input, Col, Card,Button, Typography } from 'antd'
-import { protocolsList } from './mocks'
+import { popList } from './mocks'
 import { Meta } from 'antd/lib/list/Item'
 import { PlusCircleOutlined  } from '@ant-design/icons'
 import { useHistory } from 'react-router'
 
-function ProtocolsList () {
+function POPList () {
   const history = useHistory()
   return (
     <section>
-      <Typography.Title  level={2}>Protocolos</Typography.Title>
+      <Typography.Title  level={2}>POP</Typography.Title>
       <Row style={{marginBottom:'1.5rem'}}>
         <Col span={10}>
            <Input.Search
@@ -25,12 +25,12 @@ function ProtocolsList () {
             onClick={() => {
               history.push('/protocols/form')
             }}
-          >Adicionar Protocolo</Button>
+          >Adicionar Processo</Button>
         </Col>
       </Row>
       <Row gutter={[16,20]}>
         {
-          protocolsList.map(item => (
+          popList.map(item => (
             <Col key={item.id} lg={6} md={6} sm={12} xs={24}>
                <Card 
                   style={{ height:'60vh' }}
@@ -51,4 +51,4 @@ function ProtocolsList () {
   )
 }
 
-export default ProtocolsList
+export default POPList

@@ -1,14 +1,31 @@
 import React from 'react'
-import { Card, Typography } from 'antd'
+import { Card, Typography, Menu, Dropdown } from 'antd'
 import { IBed, _statusBed } from './mock'
 import { getColorStatus } from 'utils'
 import { DangerIcon, WarningIcon } from 'assets/Icons'
+import { MoreOutlined } from '@ant-design/icons'
+
+const menu = (
+  <Menu>
+    <Menu.Item key="0">
+      <a href="https://www.antgroup.com">1st menu item</a>
+    </Menu.Item>
+    <Menu.Item key="1">
+      <a href="https://www.aliyun.com">2nd menu item</a>
+    </Menu.Item>
+    <Menu.Divider />
+    <Menu.Item key="3">3rd menu item</Menu.Item>
+  </Menu>
+);
 
 function HeaderCard({ name, status }: { name: string, status: _statusBed }) {
   return (
     <div className="CardBed__header">
       <div style={{ background: getColorStatus(status) }} />
       <Typography.Title level={5}>{name}</Typography.Title>
+      <Dropdown className="CardBed__header" overlay={menu} trigger={['click']}>
+        <MoreOutlined />
+      </Dropdown>
     </div>
   )
 }

@@ -1,10 +1,13 @@
-import { UserOutlined, FileProtectOutlined } from '@ant-design/icons'
+import { FileProtectOutlined, AppstoreOutlined, FileTextOutlined, DotChartOutlined } from '@ant-design/icons'
 import { BedIcon } from 'assets/Icons'
 import { ReactNode } from 'react'
 import { RouteComponentProps } from 'react-router'
 import BedsList from 'views/Beds/BedsList'
+import FailMode from 'views/FMEA/FailModeForm'
 
 import Home from 'views/Home/Home'
+import POPForm from 'views/POPs/POPForm'
+import POPList from 'views/POPs/POPList'
 import ProtocolForm from 'views/Protocols/ProtocolForm'
 import ProtocolsList from 'views/Protocols/ProtocolsList'
 
@@ -17,11 +20,11 @@ export interface IRoute {
   hidden?: boolean
 }
 
-const home = {
-  path: '/',
+const dashboard = {
+  path: '/dashboard',
   component: Home,
-  name: 'Home',
-  icon:UserOutlined
+  name: 'Dashboard',
+  icon: AppstoreOutlined
 }
 
 const protocols = {
@@ -39,6 +42,21 @@ const protocolForm = {
   hidden: true
 }
 
+const process = {
+  path: '/process',
+  name: 'POP',
+  component: POPList,
+  icon: FileTextOutlined
+}
+
+const popform = {
+  path: '/process/form/:id?',
+  name: 'POP',
+  component: POPForm,
+  icon:FileProtectOutlined,
+  hidden: true
+}
+
 const Beds = {
   path: '/beds',
   name: 'Leitos',
@@ -46,11 +64,22 @@ const Beds = {
   icon: BedIcon
 }
 
+
+const fmeaTab = {
+  path: '/fmea',
+  name: 'FMEA',
+  component: FailMode,
+  icon: DotChartOutlined
+}
+
 const routes:IRoute[] =  [ 
-  home,
+  dashboard,
   protocols,
+  process,
   protocolForm,
-  Beds
+  popform,
+  Beds,
+  fmeaTab
 ]
 
 export default routes

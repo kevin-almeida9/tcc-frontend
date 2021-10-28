@@ -4,9 +4,6 @@ module.exports = {
         "es2021": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -21,6 +18,6 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
-        "no-explicit-any":0
+        "no-explicit-any":"off"
     }
 };
