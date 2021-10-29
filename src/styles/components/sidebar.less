@@ -19,11 +19,38 @@
 
   padding: 0 1rem;
 
- 
+
 
   &__open {
     justify-content: flex-end;
   }
+
+  &__collapse-trigger {
+    position: absolute;
+    left: .75rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    color: @primary-color;
+
+  }
+
+ @media screen and (min-width:768px) {
+    &__collapse-trigger {
+      display: none;
+    }
+  }
+}
+
+
+.ant-layout-sider{
+  position: absolute !important;
+  z-index: 10;
+  height: 100vh;
+}
+
+.Sidebar {
+  position: absolute !important;
+  z-index: 10;
 }
 
 @layout-header-height: 50px;

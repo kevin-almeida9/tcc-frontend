@@ -1,18 +1,32 @@
 import {Button, Col, Form, FormInstance, Input, Modal, Row, Select } from 'antd'
-import React, { ReactNode, useRef, useState } from 'react'
+import React, { ReactNode, useEffect, useRef, useState } from 'react'
 
 interface IFailModeFormProps {
   open: boolean
-  onClose: () => void
+  onClose: () => void,
+  bed?: string
+  process?: string
+  protocol?: string
+
 }
 
-function FailModeForm({open, onClose}: IFailModeFormProps) {
+function FailModeForm({open, onClose, bed, process, protocol}: IFailModeFormProps) {
   const formRef = useRef<FormInstance<any>>(null)
   const [isLoading, setIsLoading] = useState(false)
 
   const onSubmit = () => {
 
   } 
+
+  useEffect(() => {
+    if(open){
+       formRef.current?.setFieldsValue({
+        bed,
+        process,
+        protocol
+       })
+    }
+  }, [open, bed, process, protocol])
 
   return (
     <Modal 
@@ -49,17 +63,29 @@ function FailModeForm({open, onClose}: IFailModeFormProps) {
               name="describe"
               label="Descrição"
             >
-              <Input.TextArea  rows={5} placeholder="Descreva o problema encontrado"/>
+              <Input.TextArea  rows={bed ? 9 : 5} placeholder="Descreva o problema encontrado"/>
             </Form.Item>
           </Col>
           <Col lg={12} md={12} sm={24} xs={24}>
+           {
+              bed && 
+              <Form.Item
+                name="status"
+                label="Status"
+              >
+                <Select placeholder="Selecione um status">
+                  <Select.Option value="warning"> Atenção</Select.Option>
+                  <Select.Option value="danger">  Indisponível</Select.Option>
+                </Select>
+              </Form.Item>
+            }
             <Form.Item
               name="protocol"
               label="Protocolo"
             >
               <Select placeholder="Selecione um protocolo">
-                <Select.Option value="p1">Protolo 1</Select.Option>
-                <Select.Option value="p2">Protolo 2</Select.Option>
+                <Select.Option value="1">Protolo 1</Select.Option>
+                <Select.Option value="2">Protolo 2</Select.Option>
               </Select>
             </Form.Item>
             <Form.Item
@@ -67,8 +93,8 @@ function FailModeForm({open, onClose}: IFailModeFormProps) {
               label="POP"
             >
               <Select placeholder="Selecione um processo">
-                <Select.Option value="p1">Processo 1</Select.Option>
-                <Select.Option value="p2">Processo 2</Select.Option>
+                <Select.Option value="1">Processo 1</Select.Option>
+                <Select.Option value="2">Processo 2</Select.Option>
               </Select>
             </Form.Item>
             <Form.Item
@@ -76,8 +102,8 @@ function FailModeForm({open, onClose}: IFailModeFormProps) {
               label="Leito"
             >
               <Select placeholder="Selecione um Leito">
-                <Select.Option value="p1">Leito 1</Select.Option>
-                <Select.Option value="p2">Leito 2</Select.Option>
+                <Select.Option value="1">Leito 1</Select.Option>
+                <Select.Option value="2">Leito 2</Select.Option>
               </Select>
             </Form.Item>
           </Col> 

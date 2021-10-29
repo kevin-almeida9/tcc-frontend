@@ -7,7 +7,7 @@ import FailModeForm from 'views/FMEA/FailModeForm'
 function BedsList() {
   const [bedsList, setBedsList] = useState<IBed[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const [openModal, setOpenModal] = useState(true)
+ 
 
   const getFields = () => {
     setIsLoading(true)
@@ -24,12 +24,6 @@ function BedsList() {
 
   return (
     <section>
-      <FailModeForm 
-        open={openModal}
-        onClose={()=>{
-          setOpenModal(false)
-        }}
-      />
       <Typography.Title level={2} >Leitos</Typography.Title>
       <Row style={{ marginBottom: '1.5rem' }}>
         <Col span={12}>
@@ -39,7 +33,14 @@ function BedsList() {
         </Col>
       </Row>
       <List
-        grid={{ gutter: 16, column: 3 }}
+        grid={{ 
+          gutter: 16,
+          column: 3,
+          lg:3,
+          md:1,
+          sm:2,
+          xs:1
+        }}  
         pagination={{
           pageSize: 6,
           responsive: false,

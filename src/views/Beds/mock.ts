@@ -8,7 +8,7 @@ interface IPatient {
 }
 
 interface IBed {
-  id: string | number
+  id: string 
   name: string
   status: _statusBed
   level: _levelUTI
@@ -23,7 +23,7 @@ interface IBed {
 
 const bedsMock: IBed[] = [
   {
-    id: 1,
+    id: '1',
     name: 'Leito 1',
     level: 'II',
     status: 'empty',
@@ -31,7 +31,7 @@ const bedsMock: IBed[] = [
     classification: 'Neonatal'
   },
   {
-    id: 2,
+    id: '2',
     name: 'Leito 2',
     level: 'II',
     status: 'warning',
@@ -43,7 +43,7 @@ const bedsMock: IBed[] = [
     ]
   },
   {
-    id: 3,
+    id: '3',
     name: 'Leito 3',
     level: 'II',
     status: 'danger',
@@ -56,7 +56,7 @@ const bedsMock: IBed[] = [
     ]
   },
   {
-    id: 4,
+    id: '4',
     name: 'Leito 4',
     level: 'II',
     status: 'disbled',
@@ -64,7 +64,7 @@ const bedsMock: IBed[] = [
     classification: 'Neonatal'
   },
   {
-    id: 5,
+    id: '5',
     name: 'Leito 5',
     level: 'II',
     status: 'using',
@@ -72,7 +72,7 @@ const bedsMock: IBed[] = [
     classification: 'Neonatal'
   },
   {
-    id: 6,
+    id: '6',
     name: 'Leito 6',
     level: 'II',
     status: 'empty',
@@ -80,7 +80,7 @@ const bedsMock: IBed[] = [
     classification: 'Neonatal'
   },
   {
-    id: 7,
+    id: '7',
     name: 'Leito 7',
     level: 'II',
     status: 'empty',
@@ -88,7 +88,7 @@ const bedsMock: IBed[] = [
     classification: 'Neonatal'
   },
   {
-    id: 8,
+    id: '8',
     name: 'Leito 8',
     level: 'II',
     status: 'empty',
@@ -96,7 +96,7 @@ const bedsMock: IBed[] = [
     classification: 'Neonatal'
   },
   {
-    id: 9,
+    id: '9',
     name: 'Leito 9',
     level: 'II',
     status: 'empty',
@@ -104,7 +104,7 @@ const bedsMock: IBed[] = [
     classification: 'Neonatal'
   },
   {
-    id: 10,
+    id: '10',
     name: 'Leito 10',
     level: 'II',
     status: 'empty',
@@ -112,7 +112,7 @@ const bedsMock: IBed[] = [
     classification: 'Neonatal'
   },
   {
-    id: 11,
+    id: '11',
     name: 'Leito 11',
     level: 'II',
     status: 'empty',
@@ -120,7 +120,7 @@ const bedsMock: IBed[] = [
     classification: 'Neonatal'
   },
   {
-    id: 12,
+    id: '12',
     name: 'Leito 12',
     level: 'II',
     status: 'empty',

@@ -6,16 +6,15 @@ import { MenuOutlined } from '@ant-design/icons'
 import { useHistory } from 'react-router-dom'
 import routes from 'routes/routes'
 
-function Sidebar() {
+function Sidebar({collapsed, onCollapse}:{collapsed: boolean, onCollapse: () => void}) {
   const history = useHistory()
-  const [collapsed, setCollapsed] = useState(false)
 
   return (
-    <Sider trigger={null} collapsible collapsed={collapsed}>
+    <Sider className="Sidebar" trigger={null} collapsible collapsed={collapsed} breakpoint='sm' collapsedWidth={innerWidth < 768 ?"0" : undefined}>
       <div className={`action-menu ${!collapsed && 'action-menu__open'}`}>
         <MenuOutlined
           onClick={() => {
-            setCollapsed(!collapsed)
+            onCollapse()
           }}
         />
       </div> 

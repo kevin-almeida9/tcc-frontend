@@ -1,29 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, Typography, Menu, Dropdown } from 'antd'
 import { IBed, _statusBed } from './mock'
 import { getColorStatus } from 'utils'
 import { DangerIcon, WarningIcon } from 'assets/Icons'
 import { MoreOutlined } from '@ant-design/icons'
+import FailModeForm from 'views/FMEA/FailModeForm'
 
-const menu = (
-  <Menu>
-    <Menu.Item key="0">
-      <a href="https://www.antgroup.com">1st menu item</a>
-    </Menu.Item>
-    <Menu.Item key="1">
-      <a href="https://www.aliyun.com">2nd menu item</a>
-    </Menu.Item>
-    <Menu.Divider />
-    <Menu.Item key="3">3rd menu item</Menu.Item>
-  </Menu>
-);
 
-function HeaderCard({ name, status }: { name: string, status: _statusBed }) {
+function HeaderCard({ name, status, id }: { name: string, status: _statusBed, id: string}) {
+  const [openModal, setOpenModal] = useState(false)
+
+  const menu = (
+    <Menu>
+      <Menu.Item key="0" onClick={()=>{setOpenModal(true)}}>
+        Relatar Falha
+      </Menu.Item>
+    </Menu>
+  );
+
   return (
     <div className="CardBed__header">
+      <FailModeForm 
+        open={openModal}
+        onClose={()=>{
+          setOpenModal(false)
+        }}
+        bed={id}
+      />
       <div style={{ background: getColorStatus(status) }} />
       <Typography.Title level={5}>{name}</Typography.Title>
-      <Dropdown className="CardBed__header" overlay={menu} trigger={['click']}>
+      <Dropdown className="CardBed__menu" overlay={menu} trigger={['click']}>
         <MoreOutlined />
       </Dropdown>
     </div>
@@ -31,9 +37,9 @@ function HeaderCard({ name, status }: { name: string, status: _statusBed }) {
 }
 
 function CardBed({ bed }: { bed: IBed }) {
-  const { name, status, failures, warnings, patient, level, ambient, classification, specialty } = bed
+  const { name, status, failures, warnings, patient, level, ambient, classification, specialty, id } = bed
   return (
-    <Card className={`CardBed ${['disbled'].includes(status) && 'CardBed__disbled'}`} title={<HeaderCard name={name} status={status} />}>
+    <Card className={`CardBed ${['disbled'].includes(status) && 'CardBed__disbled'}`} title={<HeaderCard id={id} name={name} status={status} />}>
       {
         ['warning'].includes(status) && warnings?.length && (
           warnings.map((item, idx) => (

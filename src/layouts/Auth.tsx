@@ -1,17 +1,42 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useState } from 'react'
 import Layout, { Header, Content} from 'antd/lib/layout/layout'
 import Sidebar from 'components/Sidebar'
+import { MenuOutlined } from '@ant-design/icons'
 
 interface IAuthProps {
   children?: ReactNode
 }
 
 function Auth({children}:IAuthProps) {
+  const [collapsed, setCollapsed] = useState(true)
+
   return (
     <Layout>
-        <Sidebar/>
-        <Layout>
+        <Sidebar 
+          collapsed={collapsed}
+          onCollapse={() => {
+            setCollapsed(!collapsed)
+          }}
+        />
+        <Layout 
+          style={{
+            marginLeft:innerWidth < 768 ? 0 : 80,
+            filter: collapsed ? '' : 'brightness(0.5)'
+          }}
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            setCollapsed(true)
+          }}
+        >
           <Header>
+            {collapsed &&
+            <MenuOutlined
+              className="action-menu__collapse-trigger"
+              onClick={() => {
+                setCollapsed(!collapsed)
+              }}
+            />}
           </Header>
           <Content className="content-layput">
             {children}
