@@ -46,6 +46,7 @@ function RPNModal ({open, onClose, failMode}: IRPNModalProps) {
     <Modal 
       title={failMode?.title}
       visible={open} 
+      className="rpn-modal"
       onCancel={() => {
         formRef.current?.resetFields()
         onClose()

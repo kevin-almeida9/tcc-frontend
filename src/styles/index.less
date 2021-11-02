@@ -10,29 +10,49 @@
 @import '../views/FMEA/Failmode.less';
 
 
-body #root .ant-layout{
- height: 100vh;
- font-size: 1rem;
- font-family: 'Montserrat', sans-serif !important;
- @text-color:  #699FF0;
+body #root .ant-layout {
+  height: 100vh;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif !important;
+  @text-color: #699FF0;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #699FF0;
 }
 
-.ant-typography{
+.ant-typography {
   color: #699FF0;
   font-weight: 500 !important;
 }
 
-h2.ant-typography{
+h2.ant-typography {
   color: #699FF0;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
 
+::-webkit-scrollbar-track {
+  background: #eceff3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: @primary-color;
+}

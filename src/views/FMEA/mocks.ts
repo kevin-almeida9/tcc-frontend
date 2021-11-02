@@ -21,11 +21,11 @@ export const failModes: IfailMode[] = [
   },
   {
     id: '2',
-    title: 'Terapia de substituição renal na UTI',
-    describe: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus sem nec rutrum iaculis. Vestibulum malesuada leo sed velit malesuada malesuada.',
+    title: 'Falta de insulmos pra diluição de medicamentos',
+    describe: 'Falta de insulmos pra diluição de medicamentos utilizados para sedação e analgesia. Bloqueadores Neuromusculares ',
     createAt: '',
     process:'3',
-    protocol:'7',
+    protocol:'3',
     RPN:100
   },
   {

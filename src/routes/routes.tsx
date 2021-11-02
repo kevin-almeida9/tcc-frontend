@@ -6,7 +6,7 @@ import BedsList from 'views/Bed/BedsList'
 import FailMode from 'views/FMEA/FailModeForm'
 import FailModeList from 'views/FMEA/FailModeList'
 
-import Home from 'views/Home/Home'
+import Home from 'views/Dashboard/Dashboard'
 import POPForm from 'views/POP/POPForm'
 import POPList from 'views/POP/POPList'
 import ProtocolForm from 'views/Protocol/ProtocolForm'

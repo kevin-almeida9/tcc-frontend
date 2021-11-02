@@ -15,7 +15,7 @@ const popList = [
   },
   {
     id: '3',
-    title: 'Padronização Sedação e Analgesia 2016',
+    title: 'Diluição de medicamentos utilizados para sedação e analgesia',
     describe: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus sem nec rutrum iaculis. Vestibulum malesuada leo sed velit malesuada malesuada.',
     createAt: '',
     image: 'https://cdn.pixabay.com/photo/2016/11/09/15/27/dna-1811955_1280.jpg'

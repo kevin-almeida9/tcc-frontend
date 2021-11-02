@@ -135,7 +135,7 @@ function FailModeForm({open, onClose, bed, process, protocol}: IFailModeFormProp
             >
               <Select 
                 placeholder="Selecione um Leito"         
-                options={pops}
+                options={beds}
               />
             </Form.Item>
           </Col> 
