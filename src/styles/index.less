@@ -6,11 +6,15 @@
 @import './components/cardBed.less';
 
 @import '../views/SignIn/Signin.less';
+@import '../views/Protocol/Protocol.less';
+@import '../views/FMEA/Failmode.less';
+
 
 body #root .ant-layout{
  height: 100vh;
  font-size: 1rem;
  font-family: 'Montserrat', sans-serif !important;
+ @text-color:  #699FF0;
 }
 
 *{
@@ -18,19 +22,17 @@ body #root .ant-layout{
   padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: #699FF0;
+}
+
 .ant-typography{
-  color: #699FF0 !important;
+  color: #699FF0;
   font-weight: 500 !important;
 }
 
-.ant-input{
-    
-}
-
-.ant-btn{
-  
-
+h2.ant-typography{
+  color: #699FF0;
 }
 
 
-@text-color: #A8A8A8;

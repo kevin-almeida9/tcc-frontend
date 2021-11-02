@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Input, Row, Typography, List, Card } from 'antd'
-import { beds, IBed } from './mock'
-import CardBed from './CardBed'
+import CardBed from './BedCard'
 import FailModeForm from 'views/FMEA/FailModeForm' 
+import { IBed } from './bed'
+import bedConsumer from './consumer/bed'
 
 function BedsList() {
   const [bedsList, setBedsList] = useState<IBed[]>([])
@@ -12,7 +13,7 @@ function BedsList() {
   const getFields = () => {
     setIsLoading(true)
     const timeOut = setTimeout(() => {
-      const response = beds.list()
+      const response = bedConsumer.list()
       if (response) setBedsList(response)
       setIsLoading(false)
     }, 3000)
@@ -22,6 +23,15 @@ function BedsList() {
     getFields()
   }, [])
 
+  const onSearch = (value: string ) => {
+    try {
+      const response = bedConsumer.search(value)
+      if (response) setBedsList(response)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <section>
       <Typography.Title level={2} >Leitos</Typography.Title>
@@ -29,6 +39,7 @@ function BedsList() {
         <Col span={12}>
           <Input.Search
             placeholder="Pesquisar"
+            onSearch={onSearch}
           />
         </Col>
       </Row>

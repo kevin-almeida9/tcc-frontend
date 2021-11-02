@@ -1,18 +1,17 @@
 import {Button, Col, Form, FormInstance, Input, Modal, Row, Select } from 'antd'
-import React, { ReactNode, useEffect, useRef, useState } from 'react'
-
-interface IFailModeFormProps {
-  open: boolean
-  onClose: () => void,
-  bed?: string
-  process?: string
-  protocol?: string
-
-}
+import React, { ReactNode, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { IResource } from 'types'
+import { IFailModeFormProps } from './failmode'
+import bedConsumer from 'views/Bed/consumer/bed'
+import processConsumer from 'views/POP/consumer/pop'
+import protocolConsumer from 'views/Protocol/consumer/protocol'
 
 function FailModeForm({open, onClose, bed, process, protocol}: IFailModeFormProps) {
   const formRef = useRef<FormInstance<any>>(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [beds, setBeds] = useState<IResource[]>([])
+  const [pops, setPops] = useState<IResource[]>([])
+  const [protocols, setProtopols] = useState<IResource[]>([])
 
   const onSubmit = () => {
 
@@ -27,6 +26,39 @@ function FailModeForm({open, onClose, bed, process, protocol}: IFailModeFormProp
        })
     }
   }, [open, bed, process, protocol])
+
+  useLayoutEffect(() => {
+    const getBeds = () => {
+      try {
+        const response = bedConsumer.resouce()
+        if (response) setBeds(response)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    const getProcess = () => {
+      try {
+        const response = processConsumer.resouce()
+        if (response) setPops(response)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    const getProtocols = () => {
+      try {
+        const response = protocolConsumer.resouce()
+        if (response) setProtopols(response)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    getBeds()
+    getProcess()
+    getProtocols()
+  }, [])
 
   return (
     <Modal 
@@ -83,28 +115,28 @@ function FailModeForm({open, onClose, bed, process, protocol}: IFailModeFormProp
               name="protocol"
               label="Protocolo"
             >
-              <Select placeholder="Selecione um protocolo">
-                <Select.Option value="1">Protolo 1</Select.Option>
-                <Select.Option value="2">Protolo 2</Select.Option>
-              </Select>
+              <Select 
+                placeholder="Selecione um protocolo"
+                options={protocols}
+              />
             </Form.Item>
             <Form.Item
               name="process"
               label="POP"
             >
-              <Select placeholder="Selecione um processo">
-                <Select.Option value="1">Processo 1</Select.Option>
-                <Select.Option value="2">Processo 2</Select.Option>
-              </Select>
+              <Select 
+                placeholder="Selecione um processo"
+                options={pops}
+              />
             </Form.Item>
             <Form.Item
               name="bed"
               label="Leito"
             >
-              <Select placeholder="Selecione um Leito">
-                <Select.Option value="1">Leito 1</Select.Option>
-                <Select.Option value="2">Leito 2</Select.Option>
-              </Select>
+              <Select 
+                placeholder="Selecione um Leito"         
+                options={pops}
+              />
             </Form.Item>
           </Col> 
         </Row>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Card, Typography, Menu, Dropdown } from 'antd'
-import { IBed, _statusBed } from './mock'
 import { getColorStatus } from 'utils'
 import { DangerIcon, WarningIcon } from 'assets/Icons'
 import { MoreOutlined } from '@ant-design/icons'
 import FailModeForm from 'views/FMEA/FailModeForm'
+import { IBed, _statusBed } from './bed'
 
 
 function HeaderCard({ name, status, id }: { name: string, status: _statusBed, id: string}) {

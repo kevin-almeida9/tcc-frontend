@@ -1,15 +1,22 @@
 import React from 'react'
 import {Button, Form, Input} from 'antd'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 function SignIn () {
+  const history = useHistory()
+
+  const onSubmit = () => {
+    history.push('/dashboard')
+  }
+
   return (
     <div className="signin">
       <div className="signin__card">
         <div className="signin__image"/>
         <div className="signin__form">
           <Form
-            layout='vertical'        
+            layout='vertical'   
+            onFinish={onSubmit}     
           >
             <Form.Item
               name="email"

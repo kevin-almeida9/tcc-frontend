@@ -21,7 +21,7 @@ function ProtocolForm(): ReactNode {
           <ArrowLeftOutlined onClick={()=> history.push('/protocols')} />
         </Col>
         <Col>
-          <Typography.Title>{id? 'Editar Protocolo': 'Novo Protocolo'}</Typography.Title>
+          <Typography.Title level={2}>{id? 'Editar Protocolo': 'Novo Protocolo'}</Typography.Title>
         </Col>
       </Row>
       <Form

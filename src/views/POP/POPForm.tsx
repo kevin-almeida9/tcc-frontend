@@ -18,10 +18,10 @@ function POPForm(): ReactNode {
     <>
       <Row>
         <Col>
-          <ArrowLeftOutlined onClick={()=> history.push('/protocols')} />
+          <ArrowLeftOutlined onClick={()=> history.push('/process')} />
         </Col>
         <Col>
-          <Typography.Title>{id? 'Editar Protocolo': 'Novo Protocolo'}</Typography.Title>
+          <Typography.Title level={2}>{id? 'Editar Protocolo': 'Novo Protocolo'}</Typography.Title>
         </Col>
       </Row>
       <Form

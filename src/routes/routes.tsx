@@ -2,14 +2,15 @@ import { FileProtectOutlined, AppstoreOutlined, FileTextOutlined, DotChartOutlin
 import { BedIcon } from 'assets/Icons'
 import { ReactNode } from 'react'
 import { RouteComponentProps } from 'react-router'
-import BedsList from 'views/Beds/BedsList'
+import BedsList from 'views/Bed/BedsList'
 import FailMode from 'views/FMEA/FailModeForm'
+import FailModeList from 'views/FMEA/FailModeList'
 
 import Home from 'views/Home/Home'
-import POPForm from 'views/POPs/POPForm'
-import POPList from 'views/POPs/POPList'
-import ProtocolForm from 'views/Protocols/ProtocolForm'
-import ProtocolsList from 'views/Protocols/ProtocolsList'
+import POPForm from 'views/POP/POPForm'
+import POPList from 'views/POP/POPList'
+import ProtocolForm from 'views/Protocol/ProtocolForm'
+import ProtocolsList from 'views/Protocol/ProtocolList'
 
 export interface IRoute {
   path: string
@@ -68,7 +69,7 @@ const Beds = {
 const fmeaTab = {
   path: '/fmea',
   name: 'FMEA',
-  component: FailMode,
+  component: FailModeList,
   icon: DotChartOutlined
 }
 

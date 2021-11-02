@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import Sider from 'antd/lib/layout/Sider'
 import { Menu } from 'antd'
@@ -8,9 +8,18 @@ import routes from 'routes/routes'
 
 function Sidebar({collapsed, onCollapse}:{collapsed: boolean, onCollapse: () => void}) {
   const history = useHistory()
+  const [isMobile, setISMobile] = useState(innerWidth < 768)
+
+  useEffect(() => {
+    const handleResize = () => setISMobile(innerWidth < 768)
+    window.addEventListener("resize",handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
   return (
-    <Sider className="Sidebar" trigger={null} collapsible collapsed={collapsed} breakpoint='sm' collapsedWidth={innerWidth < 768 ?"0" : undefined}>
+    <Sider className="Sidebar" trigger={null} collapsible collapsed={collapsed} breakpoint='sm' collapsedWidth={isMobile ? "0" : undefined}>
       <div className={`action-menu ${!collapsed && 'action-menu__open'}`}>
         <MenuOutlined
           onClick={() => {

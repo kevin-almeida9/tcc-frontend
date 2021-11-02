@@ -1,4 +1,4 @@
-import { _statusBed } from 'views/Beds/mock'
+import { _statusBed } from 'views/Bed/bed'
 
 export const getColorStatus = (status:_statusBed) =>{
   switch (status) {

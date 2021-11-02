@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import Layout, { Header, Content} from 'antd/lib/layout/layout'
 import Sidebar from 'components/Sidebar'
 import { MenuOutlined } from '@ant-design/icons'
@@ -9,6 +9,15 @@ interface IAuthProps {
 
 function Auth({children}:IAuthProps) {
   const [collapsed, setCollapsed] = useState(true)
+  const [isMobile, setISMobile] = useState(innerWidth < 768)
+
+  useEffect(() => {
+    const handleResize = () => setISMobile(innerWidth < 768)
+    window.addEventListener("resize",handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
   return (
     <Layout>
@@ -20,7 +29,7 @@ function Auth({children}:IAuthProps) {
         />
         <Layout 
           style={{
-            marginLeft:innerWidth < 768 ? 0 : 80,
+            marginLeft:isMobile ? 0 : 80,
             filter: collapsed ? '' : 'brightness(0.5)'
           }}
           onClick={(e) => {

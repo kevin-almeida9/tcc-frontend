@@ -1,5 +1,7 @@
 import IRoute  from './IRoute'
+import IResource from './IResource'
 
 export type {
-  IRoute
+  IRoute,
+  IResource
 }
