@@ -1,9 +1,10 @@
 import React from 'react'
+import { Typography } from 'antd'
 
 function Dashboard () {
   return (
     <div>
-      <h1>Dashboard</h1>
+      <Typography.Title  level={2}>Dashboard</Typography.Title>
     </div>
   )
 }

@@ -29,7 +29,7 @@ function popForm(): ReactNode {
     <div className="popForm">
       <div className="popForm__header">
         <ArrowLeftOutlined className="popForm__goback-icon" onClick={()=> history.push('/protocols')} />
-        <Typography.Title className="popForm__title" level={3}>{id? 'Editar POP': 'Novo POP'}</Typography.Title>
+        <Typography.Title className="popForm__title" level={2}>{id? 'Editar POP': 'Novo POP'}</Typography.Title>
       </div>
       <Form
         className="popForm__form"
