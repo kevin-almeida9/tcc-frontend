@@ -69,7 +69,7 @@ function POPList () {
             shape="round"
             icon={<PlusCircleOutlined />}
             onClick={() => {
-              history.push('/protocols/form')
+              history.push('/process/form')
             }}
           >Adicionar Processo</Button>
         </Col>
@@ -86,11 +86,11 @@ function POPList () {
                 >
                   <Meta 
                     title={
-                      <div className="protocolCard__header">
-                        <p className="protocolCard__title">
+                      <div className="popCard__header">
+                        <p className="popCard__title">
                           {item.title}
                         </p>
-                        <Dropdown className="protocolCard__menu" overlay={menu} trigger={['click']}>
+                        <Dropdown className="popCard__menu" overlay={menu} trigger={['click']}>
                           <MoreOutlined onClick={()=>{setSelectedProcess(item.id)}}/>
                         </Dropdown>
                       </div>

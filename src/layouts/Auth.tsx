@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 import Layout, { Header, Content} from 'antd/lib/layout/layout'
-import Sidebar from 'components/Sidebar'
+import Sidebar from 'components/Sidebar/Sidebar'
 import { MenuOutlined } from '@ant-design/icons'
 
 interface IAuthProps {

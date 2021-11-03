@@ -8,7 +8,7 @@
 @import '../views/SignIn/Signin.less';
 @import '../views/Protocol/Protocol.less';
 @import '../views/FMEA/Failmode.less';
-
+@import '../views/POP/POP.less';
 
 body #root .ant-layout {
   height: 100vh;
@@ -56,3 +56,23 @@ h2.ant-typography {
 ::-webkit-scrollbar-thumb:hover {
   background: @primary-color;
 }
+
+.ant-btn{
+  min-width: 200px;
+  border-radius: 15px;
+
+  .ant-btn-icon-only .ant-input-search-button{
+    min-width: 50px !important;
+  }
+}
+
+
+label, .ant-form-item-label{
+  font-weight: 600;
+  color: @primary-color !important;
+}
+
+.ant-input{
+  border-radius: 5px;
+}
+
